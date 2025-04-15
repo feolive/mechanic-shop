@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@plugin "daisyui"{
+  themes: light --default, dim --preferred
+}
+@plugin "daisyui/theme" {
+  name: "dim";
+  default: false;
+  --color-shadow: rgba(0, 0, 0, 0.8);
+  --color-hover-highlight: #1a1a1a;
+  --color-neon-1: #ff884d;
+}
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-shadow: rgba(0, 0, 0, 0.15);
+  --color-hover-highlight: #f0f0f0;
+  --color-neon-1: #ff33cc;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --myColor: rgba(0, 0, 0, 0.8);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.eml-btn {
+ @apply text-slate-500 cursor-pointer bg-base-300 rounded-full h-auto w-auto p-4 flex items-center justify-center pointer-events-auto;
+ box-shadow: 18px 18px 40px var(--color-shadow), -10px -10px 35px var(--color-base-100);
+ transition: box-shadow 0.2s ease-in-out;
+}
+
+.eml-btn.active-btn{
+ @apply text-info cursor-pointer bg-base-300 rounded-full h-auto w-auto p-4 flex items-center justify-center pointer-events-none;
+ box-shadow: 0px 0px 30px var(--color-shadow), 0px 0px 30px var(--color-base-100), inset 18px 18px 30px var(--color-shadow), inset -10px -10px 30px var(--color-base-100);
+}
+
+.eml-btn.active-btn-2{
+  @apply text-secondary cursor-pointer bg-base-300 rounded-full h-auto w-auto p-4 flex items-center justify-center pointer-events-none;
+  box-shadow: 0px 0px 30px var(--color-shadow), 0px 0px 30px var(--color-base-100), inset 18px 18px 30px var(--color-shadow), inset -10px -10px 30px var(--color-base-100);
+ }
+
+
+ @property --color-deg {
+  syntax: "<angle>";
+  initial-value: 45deg;
+  inherits: false;
+ }
+
+ .neon-card {
+  @apply bg-base-300 p-1 flex items-center justify-center pointer-events-auto;
+ }
+
+ .neon-card::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(var(--color-deg), #66ffff,#0066ff, var(--color-neon-1));
+  border-radius: inherit;
+  transition: color 0.2s ease-in-out;
+  z-index: -10;
+  animation: rotate 5s linear infinite;
+ }
+
+ .neon-card::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(var(--color-deg), #66ffff, #0066ff, var(--color-neon-1));
+  filter: blur(0.95em);
+  border-radius: inherit;
+  z-index: -10;
+  animation: rotate 5s linear infinite;
+ }
+
+ .highlight-border {
+  @apply border-[var(--color-neon-1)];
+ }
+
+
+ @keyframes rotate {
+  from {
+    --color-deg: 45deg;
+  }
+  to {
+    --color-deg: 360deg;
+  }
+ }
+
+
+
+

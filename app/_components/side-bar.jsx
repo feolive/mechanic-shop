@@ -25,7 +25,7 @@ export default function SideBar() {
     <div className="h-screen w-64 bg-base-100 text-base-content fixed left-0 top-0 ">
       <div className="flex flex-row justify-center items-center w-full h-10 bg-gradient-to-r from-[#ff006e] to-[#8338ec] rounded-badge">
         <p className="text-lg font-bold italic text-white">
-          Customer & Card Center
+          Staff Center
         </p>
       </div>
       <nav className="py-12 ml-4">

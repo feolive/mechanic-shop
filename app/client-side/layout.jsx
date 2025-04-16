@@ -6,8 +6,8 @@ import CartContextProvider from "@/app/_utils/cart-context";
 export default function ClientSideLayout({ children }) {
   return (
     <AuthContextProvider loginPage={<CustomerLogin />}>
-      <div className="text-base-content bg-base-300">
-        <main className="w-full h-full">
+      <div className="text-base-content bg-base-300 flex justify-center items-center">
+        <main className="w-98 h-full min-w-[393px]">
           <CartContextProvider>
             {children}
           </CartContextProvider>

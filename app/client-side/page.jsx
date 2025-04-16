@@ -8,6 +8,7 @@ import tryCatch from "@/app/_utils/try-catch";
 import { CartContext } from "@/app/_utils/cart-context";
 import ModalDialog from "@/app/_components/modal-dialog";
 import ClientProfile from "@/app/_components/client-side/client-profile";
+import PlusIcon from "@/app/_icons/PlusIcon";
 
 export default function ClientSide() {
   const { customer, signOut } = useContext(AuthContext);
@@ -83,13 +84,11 @@ export default function ClientSide() {
           </Card>
           <div className="flex flex-col justify-center items-center gap-4">
             <Card width="w-40" height="h-18" title="Request New">
-              <button className="btn btn-primary btn-outline btn-xs rounded-full">
-                +
-              </button>
+              <PlusIcon color="var(--color-base-content)" width={18} height={18}/>
             </Card>
-            <Card width="w-40" height="h-18" title="Card 3">
+            <Card width="w-40" height="h-18" title="Pending Requests">
               <div className="flex justify-between items-center">
-                <div>Pending Requests</div>
+                <div>2</div>
               </div>
             </Card>
           </div>

@@ -7,7 +7,7 @@ export default function ClientSideLayout({ children }) {
   return (
     <AuthContextProvider loginPage={<CustomerLogin />}>
       <div className="text-base-content bg-base-300 flex justify-center items-center">
-        <main className="w-98 h-full min-w-[393px]">
+        <main className="w-98 h-full min-w-[393px] min-h-[852px]">
           <CartContextProvider>
             {children}
           </CartContextProvider>

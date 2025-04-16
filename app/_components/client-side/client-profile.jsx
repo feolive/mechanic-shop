@@ -58,13 +58,13 @@ export default function ClientProfile({me, signOut}) {
             alt="Avatar"
             className="w-12 h-12 rounded-full"
           />
-          <p className="text-primary">
+          <p className="text-info">
             {me?.first_name} {me?.last_name}
           </p>
           <p className="text-base-content opacity-60">
             {me?.description || "--"}
           </p>
-          <p className="text-primary">credits: {me?.credits}</p>
+          <p className="text-info">credits: {me?.credits}</p>
           <button
             className="btn btn-outline btn-xs absolute bottom-4 left-4"
             onClick={signOut}

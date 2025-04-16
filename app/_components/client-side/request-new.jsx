@@ -4,7 +4,7 @@ import Ellipsis from "@/app/_icons/Ellipsis";
 import DateBox from "@/app/_components/client-side/date-box";
 import { useState } from "react";
 import Card from "@/app/_components/card";
-
+import clsx from "clsx";
 
 const dateList = [
     {
@@ -29,7 +29,7 @@ const dateList = [
     }
 ]
 
-export default function RequestNew() {
+export default function RequestNew({opacity}) {
   const [currDate, setCurrDate] = useState(20);
 
   const dateClick = (date) => {
@@ -37,7 +37,7 @@ export default function RequestNew() {
   };
 
   return (
-    <>
+    <div className={clsx("w-full flex flex-col justify-center items-center gap-4 transition-opacity duration-350 ease-linear absolute top-0 left-[50%] -translate-x-1/2", opacity ? "opacity-100" : "opacity-0 -z-10")}>
       <section className="w-[90%] flex flex-col justify-center items-center gap-2" aria-label="Date Picker">
         <div className="w-full flex justify-between items-center">
           <div className="inline-flex justify-between items-center gap-1" aria-label="Month">
@@ -60,9 +60,9 @@ export default function RequestNew() {
         </div>
         <div className="w-[50%] flex flex-col justify-start items-center gap-1">
             <Card width="w-40" height="h-20" title="Oil Change"></Card>
-            <Card width="w-40" height="h-40" title="Non-Standard Labor"></Card>
+            <Card width="w-40" height="h-40" title="Time and Material"></Card>
         </div>
       </section>
-    </>
+    </div>
   );
 }

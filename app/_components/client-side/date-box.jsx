@@ -13,7 +13,7 @@ export default function DateBox({ dateList, curr, onClick, layout={width: "w-12"
     return (
       <div className={`flex justify-center items-center ${layout.gap}`}>
         {dateList.map((item) => (
-            <label key={item.date} className={clsx(`${layout.width} ${layout.height} text-sm bg-base-100 rounded-xl flex flex-col justify-center items-center`, selected===item.date ? "text-base-300 bg-primary" : "text-slate-500")} 
+            <label key={item.date} className={clsx(`${layout.width} ${layout.height} text-sm bg-base-100 rounded-xl flex flex-col justify-center items-center cursor-pointer transition-colors duration-300 ease-linear`, selected===item.date ? "text-base-300 bg-primary" : "text-slate-500")} 
             onClick={() => handleClick(item.date)}>
               <input
                 type="radio"

@@ -13,8 +13,8 @@ const MGMT_PREFIX = "/management";
 
 const menuItems = [
   { href: `${MGMT_PREFIX}`, label: "Home", icon: HomeIcon },
-  { href: `${MGMT_PREFIX}/customer`, label: "Customers", icon: UsersIcon },
-  { href: `${MGMT_PREFIX}/appointment`, label: "Appointments", icon: GridIcon},
+  { href: `${MGMT_PREFIX}/customer`, label: "Customer", icon: UsersIcon },
+  { href: `${MGMT_PREFIX}/appointment`, label: "Appointment", icon: GridIcon},
 ];
 
 export default function SideBar() {

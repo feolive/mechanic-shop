@@ -1,92 +1,43 @@
 "use client";
 
-import { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "@/app/_utils/auth-context";
 import Card from "@/app/_components/card";
 import RequestNew from "@/app/_components/client-side/request-new";
-import tryCatch from "@/app/_utils/try-catch";
-import { CartContext } from "@/app/_utils/cart-context";
-import ModalDialog from "@/app/_components/modal-dialog";
+import ServiceStatus from "@/app/_components/client-side/service-status";
+import PendingRequest from "@/app/_components/client-side/pending-request";
 import ClientProfile from "@/app/_components/client-side/client-profile";
 import PlusIcon from "@/app/_icons/PlusIcon";
 
 export default function ClientSide() {
   const { customer, signOut } = useContext(AuthContext);
-  const [rotateItem, setRotateItem] = useState("rotate-y-0");
-  const [rotateCart, setRotateCart] = useState("rotate-y-180");
-  const [isCart, setIsCart] = useState(false);
   const [me, setMe] = useState(null);
-  const [isOrderDetails, setIsOrderDetails] = useState(false);
-  const [orders, setOrders] = useState([]);
-  const [currOrder, setCurrOrder] = useState({});
-  const { clearCart, refreshOrders, setRefreshOrders } =
-    useContext(CartContext);
-  const modalRef = useRef(null);
+  const [selectedTab, setSelectedTab] = useState(0);
 
-  const flipCard = () => {
-    if (isCart) {
-      setRotateCart("rotate-y-180");
-      setRotateItem("rotate-y-0");
-      setIsCart(false);
-    } else {
-      setRotateCart("rotate-y-0");
-      setRotateItem("-rotate-y-180");
-      setIsCart(true);
-    }
-  };
-
-  const orderDetails = ({ orderId, cost }) => {
-    setIsOrderDetails(true);
-    setCurrOrder({ orderId, cost });
-  };
-
-  const clearTheCart = async () => {
-    modalRef.current.showModal();
+  const handleTabChange = (index) => {
+    setSelectedTab(index);
   };
 
   useEffect(() => {
     setMe(customer?.[0]);
   }, [customer]);
 
-  /**
-   * Fetch customer orders
-   */
-  useEffect(() => {
-    async function fetchOrders() {
-      const [data, error] = await tryCatch(
-        async () => await fetch(`/api/client-side/order/${me?.id}`)
-      );
-      if (error) {
-        console.error(error);
-        return;
-      }
-      if (!data) {
-        return;
-      }
-      const orderData = await data.json();
-      setOrders(orderData);
-    }
-    if (!me) {
-      return;
-    }
-    fetchOrders();
-    setRefreshOrders(false);
-  }, [me?.id, refreshOrders]);
+
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center min-h-screen gap-6 font-[family-name:var(--font-geist-sans)]">
+    <div className="w-full h-full flex flex-col justify-start items-center mt-10 min-h-screen gap-6 font-[family-name:var(--font-geist-sans)]">
         <ClientProfile me={me} signOut={signOut} />
         <section className="w-full flex justify-center items-center gap-4" aria-label="Service Selections">
-          <Card width="w-40" height="h-40" title="Service Status">
+          <Card width="w-40" height="h-40" title="Service Status" active={selectedTab === 0} onClick={ () => handleTabChange(0)}>
             <div className="flex justify-between items-center">
               <div>8 services</div>
             </div>
           </Card>
           <div className="flex flex-col justify-center items-center gap-4">
-            <Card width="w-40" height="h-18" title="Request New">
+            <Card width="w-40" height="h-18" title="Request New" active={selectedTab === 1} onClick={() => handleTabChange(1)}>
               <PlusIcon color="var(--color-base-content)" width={18} height={18}/>
             </Card>
-            <Card width="w-40" height="h-18" title="Pending Requests">
+            <Card width="w-40" height="h-18" title="Pending Requests" active={selectedTab === 2} onClick={() => handleTabChange(2)}>
               <div className="flex justify-between items-center">
                 <div>2</div>
               </div>
@@ -94,16 +45,12 @@ export default function ClientSide() {
           </div>
         </section>
         <span className="bg-slate-300 w-[95%] h-0.5"></span>
-        <section className="w-full flex flex-col justify-center items-center gap-4" aria-label="Service Details">
-          <RequestNew />
+        <section className="w-full relative" aria-label="Service Details">
+          <ServiceStatus opacity={selectedTab === 0} />
+          <RequestNew opacity={selectedTab === 1} />
+          <PendingRequest opacity={selectedTab === 2} />
         </section>
       
-      <ModalDialog
-        refName={modalRef}
-        title="Clear Cart"
-        description="Are you sure you want to clear your cart?"
-        onConfirm={clearCart}
-      />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import LeftArrow from "@/app/_icons/LeftArrow";
 import RightArrow from "@/app/_icons/RightArrow";
-import Ellipsis from "@/app/_icons/Ellipsis";
+import DownArrow from "@/app/_icons/DownArrow";
 import DateBox from "@/app/_components/client-side/date-box";
 import { useState } from "react";
 import Card from "@/app/_components/card";
@@ -41,8 +41,7 @@ export default function RequestNew({opacity}) {
       <section className="w-[90%] flex flex-col justify-center items-center gap-2" aria-label="Date Picker">
         <div className="w-full flex justify-between items-center">
           <div className="inline-flex justify-between items-center gap-1" aria-label="Month">
-            <p className="font-bold badge badge-outline badge-primary rounded-2xl">March</p>
-            <button className="w-10 h-10 btn btn-xs rounded-full"><Ellipsis color="var(--color-base-content)" width={18} height={18}/></button>
+            <p className="font-bold badge badge-outline badge-primary rounded-2xl">March <DownArrow color="var(--color-primary)" width={12} height={12}/></p>
           </div>
           <div className="inline-flex justify-between items-center gap-1" aria-label="Pagination">
             <button className="w-10 h-10 btn btn-xs rounded-full"><LeftArrow color="var(--color-base-content)" width={12} height={12}/></button>

@@ -23,7 +23,7 @@ export default function CartItem({item, cId}) {
     async function updateCart() {
       if(item.new){
         item.new = false;
-        await fetch(`/api/rental/cart`, {
+        await fetch(`/api/client-side/cart`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export default function CartItem({item, cId}) {
         return;
       }
       if(debouncedQty===0){
-        await fetch(`/api/rental/cart`, {
+        await fetch(`/api/client-side/cart`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export default function CartItem({item, cId}) {
         });
         return;
       }
-      await fetch(`/api/rental/cart`, {
+      await fetch(`/api/client-side/cart`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

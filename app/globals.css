@@ -113,6 +113,10 @@ body {
   }
  }
 
+ .card-active {
+  @apply bg-primary text-base-300;
+ }
+
 
 
 

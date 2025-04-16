@@ -42,7 +42,7 @@ export default function Cart() {
       cost: totalCost,
       cartId
     }
-    const res = await fetch(`/api/rental/order`, {
+    const res = await fetch(`/api/client-side/order`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default function Cart() {
 
   useEffect(() => {
     async function fetchCart() {
-      const data = await fetch(`/api/rental/cart/${me?.id}`);
+      const data = await fetch(`/api/client-side/cart/${me?.id}`);
       if(!data){
         return;
       }

@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/globals.css";
 import AuthContextProvider from "@/app/_utils/auth-context";
-import CustomerLogin from "@/app/_components/customer-login";
+import CustomerLogin from "@/app/_components/client-side/customer-login";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Game Card Rental",
+  title: "Auto 5",
   description: "The best way to rent game cards",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -17,7 +17,7 @@ export default function CardMenu() {
 
   useEffect(() => {
     async function fetchItems() {
-      const [data, error] = await tryCatch(async () => await fetch(`/api/rental/items/${pageNum-1}`));
+      const [data, error] = await tryCatch(async () => await fetch(`/api/client-side/items/${pageNum-1}`));
       if(error){
         console.error(error);
         return;

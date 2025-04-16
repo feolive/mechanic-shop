@@ -19,7 +19,7 @@ export default function Home() {
         console.error(error);
       }
     }
-    route.push('/rental');
+    route.push('/client-side');
   };
 
   const signOutCustomer = async () => {
@@ -37,9 +37,9 @@ export default function Home() {
     <>
       <header className="w-full fixed top-0 shadow-sm">
         <div className="inline-flex justify-between items-center w-full h-14 sm:h-18 px-16 bg-base-200 opacity-80 backdrop-blur-sm">
-          <h1 className="text-sm xs:text-2xl font-bold text-primary outline-2 px-2 rounded-full">Auto 5</h1>
+          <h1 className="text-sm xs:text-2xl font-bold text-primary outline-2 px-2 rounded-full">Hi-5 Auto</h1>
           <nav className="inline-flex justify-end items-end gap-2">
-            { customer ? <Link className="btn btn-link underline-offset-2" href="/rental">My Account</Link> : (
+            { customer ? <Link className="btn btn-link underline-offset-2" href="/client-side">My Account</Link> : (
               <>
                 <button className="btn btn-outline btn-info btn-xs xs:btn-sm rounded-lg" onClick={signOutStaff}>Sign In</button>
                 <Link className="btn btn-secondary btn-xs xs:btn-sm rounded-lg" href="/signup">Register Now</Link>

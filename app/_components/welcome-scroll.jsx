@@ -1,6 +1,6 @@
-export default function Welcome() {
+export default function WelcomeScroll() {
   return (
-    <main className="flex flex-col justify-start items-center w-full scroll-auto">
+    <main className="flex flex-col justify-start items-center mt-8 w-full scroll-auto">
       <div
         className="hero min-h-[300px] h-[300px] sm:h-[800px]"
         style={{

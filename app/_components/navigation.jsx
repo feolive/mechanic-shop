@@ -37,11 +37,13 @@ export default function Navigation({ navItems, isNarrow=false }) {
                 <div className="inline-flex justify-center items-center gap-2">
                     {
                         customer ? (
-                            <Link className={clsx("btn btn-primary btn-xs xs:btn-md rounded-full", isNarrow && "btn-xs rounded-full")} href="/client-side">My Account</Link>
+                            <Link href="/client-side">
+                                <img className="size-10 rounded-full" src={customer.avatar || "/default-avatar.png"} alt="customer avatar" />
+                            </Link>
                         ) : (
                             <>
-                                <button className={clsx("btn btn-outline btn-info btn-x sm:btn-md rounded-2xl", isNarrow && "btn-xs rounded-full")} onClick={signOutStaff}>Sign In</button>
-                                <Link className={clsx("btn btn-secondary btn-xs sm:btn-md rounded-2xl", isNarrow && "btn-xs rounded-full")} href="/signup">Register</Link>
+                                <button className={clsx("btn btn-outline btn-md text-white rounded-xl", isNarrow && "btn-xs rounded-full")} onClick={signOutStaff}>Sign In</button>
+                                <Link className={clsx("btn btn-primary btn-md rounded-xl", isNarrow && "btn-xs rounded-full")} href="/signup">Register</Link>
                             </>
                         )
                     }

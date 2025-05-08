@@ -1,9 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui"{
-  themes: light --default, dim --preferred
+  themes: light --default, dark --preferred
 }
 @plugin "daisyui/theme" {
-  name: "dim";
+  name: "dark";
   default: false;
   --color-shadow: rgba(0, 0, 0, 0.8);
   --color-hover-highlight: #1a1a1a;
@@ -23,11 +23,13 @@
   --myColor: rgba(0, 0, 0, 0.8);
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-graypanel: #444444;
+  --color-accent-btn: #66ff66;
 }
 
 @media (prefers-color-scheme: dark) {

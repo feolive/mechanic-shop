@@ -2,15 +2,15 @@
 ' left to right direction
 hide circle
 skinparam linetype ortho
-skinparam backgroundColor #fdf0d5
+skinparam backgroundColor #edede9
 skinparam roundcorner 20
 skinparam shadowing true
 skinparam class {
-    backgroundColor #003049
+    backgroundColor #a9d6e5
     arrowColor #003049
-    borderColor #fdf0d5
-    fontColor #fdf0d5
-    attributeFontColor #fdf0d5
+    borderColor #f1faee
+    fontColor #000000
+    attributeFontColor #000000
 }
 
 entity customer {
@@ -27,68 +27,52 @@ entity customer {
     updatedTime: timestamp <<generated>>
 }
 
-entity gameCard {
-    id: integer <<generated>> <<pk>>
-    name: text <<not null>>
-    description: text
-    inventory: integer <<not null>>
-    price: numeric <<not null>>
-    img: text
-    mark: integer
-    createdTime: timestamp <<generated>>
-    updatedTime: timestamp <<generated>>
-}
-
+' order
 entity order {
     id: integer <<generated>> <<pk>>
+    serviceId: integer <<not null>>
+    description: text 
     customerId: integer <<not null>>
-    cost: numeric <<not null>>
+    status: text <<not null>> <<default "P">> <<enum "P:pending", "A:accepted", "I:inProgress", "D:done", "C:cancelled", "F:failed">>
     mark: integer
     createdTime: timestamp <<generated>>
     updatedTime: timestamp <<generated>>
 }
 
-entity cardOrderMapping {
-    id: integer <<generated>> <<pk>>
-    orderId: integer <<not null>>
-    cardId: integer <<not null>>
-    quantity: integer <<not null>>
-    createdTime: timestamp <<generated>>
-}
 
-entity cardCategoryMapping {
+' service config table, which configures the different services
+entity calendar_config {
     id: integer <<generated>> <<pk>>
-    cardId: integer <<not null>>
-    categoryId: integer <<not null>>
-    createdTime: timestamp <<generated>>
-}
-
-entity category {
-    id: integer <<generated>> <<pk>>
-    code: text <<not null>>
+    calendar: text <<not null>> <<default "">> <<format "yyyy-MM-dd, if the calendar is empty, it will be set as default global config that applies to each day">>
     name: text <<not null>>
     description: text
+    type: text <<not null>> <<default "FR">> <<enum "FR: flat_rate", "HR: hourly_rate">>
+    startTime: text <<not null>> <<format "HH:mm">>
+    interval: numeric <<unit "min, if the value is null, it means the service is a hourlyRate service">>
+    intervalInventory: integer <<not null>> <<default 0>> <<"this column only applies to the flatRate service, which means the inventory of each interval">>
+    endTime: text <<not null>> <<format "HH:mm">>
+    price: numeric <<"if the price is null, it means the service is a hourlyRate service, and only applies to flatRate service">>
     mark: integer
     createdTime: timestamp <<generated>>
     updatedTime: timestamp <<generated>>
 }
 
-entity cart {
+' calendar 
+entity calendar {
     id: integer <<generated>> <<pk>>
-    customerId: integer <<not null>>
-    totalCost: numeric
+    serviceId: integer <<not null>>
+    date: text <<not null>> <<format "yyyy-MM-dd">>
+    startTime: text <<not null>> <<format "HH:mm">>
+    endTime: text <<not null>> <<format "HH:mm">>
+    interval: integer
+    intervalInventory: integer <<not null>>
+    price: numeric <<"if the price is null, it means the service is a hourlyRate service, and only applies to flatRate service">>
+    mark: integer
     createdTime: timestamp <<generated>>
     updatedTime: timestamp <<generated>>
-    mark: integer
 }
 
-entity cartCardMapping {
-    id: integer <<generated>> <<pk>>
-    cartId: integer <<not null>>
-    cardId: integer <<not null>>
-    quantity: integer <<not null>>
-    createdTime: timestamp <<generated>>
-}
+
 
 order }o--|| customer
 gameCard ||--o{ cardOrderMapping

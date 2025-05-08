@@ -37,7 +37,7 @@ export default function Home() {
         console.error(error);
       }
     }
-    route.push('/management');
+    route.push('/staff');
   };
 
   const [isNarrow, setIsNarrow] = useState(false);

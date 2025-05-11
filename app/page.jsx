@@ -9,9 +9,11 @@ import Welcome from "@/app/_components/welcome";
 import Navigation from "@/app/_components/navigation";
 
 const testNavItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "#home" },
+  { label: "My Works", href: "#gallery" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Q&A", href: "#qa" },
+  { label: "About", href: "#about" }
 ];
 
 export default function Home() {
@@ -61,7 +63,7 @@ export default function Home() {
 
   return (
     <>
-      <header className="w-full fixed top-0 shadow-sm z-10">
+      <header className="w-full fixed left-0 top-0 shadow-sm z-10">
         <Navigation navItems={testNavItems} isNarrow={isNarrow} />
       </header>
       <div className="w-full flex flex-col justify-start items-center gap-2">

@@ -10,7 +10,7 @@ import Navigation from "@/app/_components/navigation";
 
 const testNavItems = [
   { label: "Home", href: "#home" },
-  { label: "My Works", href: "#gallery" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Pricing", href: "#pricing" },
   { label: "Q&A", href: "#qa" },
   { label: "About", href: "#about" }

@@ -22,7 +22,7 @@ export default function Navigation({ navItems, isNarrow=false }) {
     };
 
     return (
-        <div className="w-full left-0 top-0 sm:top-2 z-10 flex justify-center items-center">
+        <div className="w-full fixed top-0 sm:top-2 z-10 flex justify-center items-center">
             <div className={clsx("inline-flex justify-between items-center gap-2 h-8 sm:h-10 transition-all ease-linear duration-300", isNarrow ? "w-[95%] lg:w-[55%] bg-white/30 backdrop-blur-sm rounded-full mx-auto px-4 neon-ring" : "w-full bg-transparent px-[0.5em] sm:px-[10em]")}>
                 <div className="inline-flex justify-center items-center gap-1 z-10">
                     {/* <Logo color="white" width={32} height={32} /> */}
@@ -31,7 +31,7 @@ export default function Navigation({ navItems, isNarrow=false }) {
                 <nav className="inline-flex justify-center items-center gap-2 z-10">
                     {navItems &&
                         navItems.map((navItem) => (
-                            <Link key={navItem.href} className="btn btn-ghost btn-xs sm:btn-md border-0 shadow-none rounded-full hover:bg-neutral-content/50 text-white" href={navItem.href}>{navItem.label}</Link>
+                            <Link key={navItem.href} className="btn btn-ghost btn-xs sm:btn-md border-0 shadow-none rounded-full hover:bg-transparent hover:text-accent text-white" href={navItem.href}>{navItem.label}</Link>
                         ))}
                 </nav>
                 <button className="btn btn-soft btn-accent btn-xs sm:btn-sm rounded-full z-10">

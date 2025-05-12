@@ -74,7 +74,7 @@ body {
  }
 
  .neon-card {
-  @apply bg-base-300 p-1 flex items-center justify-center pointer-events-auto;
+  @apply pointer-events-auto;
  }
 
  .neon-card::before{
@@ -98,6 +98,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  inset: -7px;
   background-image: linear-gradient(var(--color-deg), #99f1ff, #6600ff, var(--color-neon-1));
   filter: blur(0.95em);
   border-radius: inherit;

@@ -1,8 +1,4 @@
 "use client";
-import { useState } from "react";
-import { useEffect } from "react";
-import Card from "@/app/_components/card";
-import SliderPanel from "@/app/_components/staff/slider-panel";
 import OrderPanel from "@/app/_components/staff/order-panel";
 
 const option = {

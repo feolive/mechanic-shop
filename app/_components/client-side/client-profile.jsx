@@ -1,10 +1,10 @@
 
 export default function ClientProfile({me, signOut}) {
   return (
-    <div className="w-[95%] h-36 card bg-base-100 shadow-sm rounded-xl flex justify-center items-center">
-      <div className="w-full card-body text-xs flex flex-col justify-center items-center gap-1">
+    <div className="w-40 h-36 card bg-base-100 shadow-sm rounded-xl flex justify-center items-center">
+      <div className="w-full card-body text-xs flex flex-col justify-center items-center gap-1 p-2">
         <div className="w-full flex justify-between items-center">
-          <h2 className="card-title text-base-content text-sm">Account</h2>
+          <h2 className="card-title text-base-content text-xs">Account</h2>
           <div>
             <label className="toggle text-base-content">
               <input type="checkbox" value="dim" className="theme-controller" />
@@ -65,12 +65,12 @@ export default function ClientProfile({me, signOut}) {
             {me?.description || "--"}
           </p>
           <p className="text-info">credits: {me?.credits}</p>
-          <button
+          {/* <button
             className="btn btn-outline btn-xs absolute bottom-4 left-4"
             onClick={signOut}
           >
             Logout
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

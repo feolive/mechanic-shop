@@ -8,7 +8,7 @@ export default function ManagementLayout({ children }) {
     <AuthContextProvider loginPage={<StaffLogin />}>
       <div className="text-base-content bg-base-100">
         <Sidebar />
-        <main className="ml-64 p-8">{children}</main>
+        <main className="ml-64 p-8 w-auto h-screen">{children}</main>
       </div>
     </AuthContextProvider>
   );

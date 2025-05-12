@@ -1,11 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/app/_utils/auth-context";
 import tryCatch from "@/app/_utils/try-catch";
 import { useRouter } from "next/navigation";
 import Welcome from "@/app/_components/welcome";
+import Navigation from "@/app/_components/navigation";
+
+const testNavItems = [
+  { label: "Home", href: "#home" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Q&A", href: "#qa" },
+  { label: "About", href: "#about" }
+];
 
 export default function Home() {
 
@@ -30,26 +39,34 @@ export default function Home() {
         console.error(error);
       }
     }
-    route.push('/management');
+    route.push('/staff');
   };
 
+  const [isNarrow, setIsNarrow] = useState(false);
+
+  const scrolled = () => {
+    window.addEventListener('scroll', (e) => {
+      if(window.scrollY > 0){
+        setIsNarrow(true);
+      } else {
+        setIsNarrow(false);
+      }
+    })
+  };
+
+  useEffect(() => {
+    scrolled();
+    return () => {
+      window.removeEventListener('scroll', scrolled);
+    };
+  }, []);
 
   return (
     <>
-      <header className="w-full fixed top-0 shadow-sm z-10">
-        <div className="inline-flex justify-between items-center h-14 sm:h-18 w-full px-16 bg-base-200 opacity-80 backdrop-blur-sm">
-          <h1 className="text-sm xs:text-2xl font-bold text-primary outline-2 px-2 rounded-full">Hi-5 Auto</h1>
-          <nav className="inline-flex justify-end items-end gap-2">
-            { customer ? <Link className="btn btn-link underline-offset-2" href="/client-side">My Account</Link> : (
-              <>
-                <button className="btn btn-outline btn-info btn-xs xs:btn-sm rounded-lg" onClick={signOutStaff}>Sign In</button>
-                <Link className="btn btn-secondary btn-xs xs:btn-sm rounded-lg" href="/signup">Register Now</Link>
-              </>
-            )}
-          </nav>
-        </div>
+      <header className="w-full fixed left-0 top-0 shadow-sm z-10">
+        <Navigation navItems={testNavItems} isNarrow={isNarrow} />
       </header>
-      <div className="w-full pt-10 sm:pt-12 flex flex-col justify-start items-center gap-2">
+      <div className="w-full flex flex-col justify-start items-center gap-2">
         <Welcome />
         <footer className="footer sm:footer-horizontal bg-base-100 text-base-content p-10">
         <aside>

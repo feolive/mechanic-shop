@@ -1,9 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui"{
-  themes: light --default, dim --preferred
+  themes: light --default, dark --preferred
 }
 @plugin "daisyui/theme" {
-  name: "dim";
+  name: "dark";
   default: false;
   --color-shadow: rgba(0, 0, 0, 0.8);
   --color-hover-highlight: #1a1a1a;
@@ -23,11 +23,13 @@
   --myColor: rgba(0, 0, 0, 0.8);
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-graypanel: #444444;
+  --color-accent-btn: #66ff66;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,6 +37,10 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -68,7 +74,7 @@ body {
  }
 
  .neon-card {
-  @apply bg-base-300 p-1 flex items-center justify-center pointer-events-auto;
+  @apply pointer-events-auto;
  }
 
  .neon-card::before{
@@ -78,7 +84,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(var(--color-deg), #66ffff,#0066ff, var(--color-neon-1));
+  background-image: linear-gradient(var(--color-deg), #99f1ff,#6600ff, var(--color-neon-1));
   border-radius: inherit;
   transition: color 0.2s ease-in-out;
   z-index: -10;
@@ -92,17 +98,68 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(var(--color-deg), #66ffff, #0066ff, var(--color-neon-1));
+  inset: -7px;
+  background-image: linear-gradient(var(--color-deg), #99f1ff, #6600ff, var(--color-neon-1));
   filter: blur(0.95em);
   border-radius: inherit;
   z-index: -10;
   animation: rotate 5s linear infinite;
  }
 
+ .neon-ring {
+    overflow: hidden;
+ }
+
+ .neon-ring::before{
+  content: '';
+    position: absolute;
+    top: -25%;
+    left: 105%;
+    width: 300px;
+    height: 80px;
+    translate: -50% -25%;
+    background: radial-gradient(#4acdc6, transparent,transparent);
+    border-radius: 40px;
+    opacity: 1;
+    transition: 0.5s top 0s left 0s;
+    animation: flow 10s linear infinite;
+ }
+
+ .neon-ring::after{
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 50px;
+ }
+ 
+
  .highlight-border {
   @apply border-[var(--color-neon-1)];
  }
 
+ @keyframes flow {
+  0% {
+    top: 25%;
+    left: -5%;
+  }
+  25%{
+    top: 50%;
+    left: 50%;
+  }
+  50%{
+    top: 25%;
+    left: 105%;
+  }
+  75%{
+    top: -75%;
+    left: 50%;
+  }
+  100% {
+    top: 25%;
+    left: -5%;
+  }
+ }
 
  @keyframes rotate {
   from {

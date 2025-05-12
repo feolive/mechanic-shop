@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import tryCatch from "@/app/_utils/try-catch";
 import GameCardList from "./list";
 
-export default function GameCard() {
+export default function Customer() {
 
   // TODO: REPLACE ALL THE CODE BELOW WITH YOUR OWN CODE
   // THE COMMENTED CODE IS A SIMPLE REQUEST TO THE API THAT LOCATES IN THE app/api/management/game-card/route.ts

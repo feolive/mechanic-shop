@@ -32,7 +32,7 @@ export default function Welcome() {
                 transition={{ duration: 0.5 }}
                 className="mb-5 text-6xl font-bold"
               >
-                Photo Studio
+                Tiana Young Photography
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 150 }}
@@ -60,19 +60,19 @@ export default function Welcome() {
             </div>
             <div className="flex flex-wrap w-full sm:w-1/2 gap-2">
               <GlassBadge>
-                <p className="text-xs sm:text-lg">Potrait</p>
+                <p className="text-xs sm:text-lg">Couples</p>
               </GlassBadge>
               <GlassBadge>
-                <p className="text-xs sm:text-lg">Landscape</p>
+                <p className="text-xs sm:text-lg">Portraits</p>
+              </GlassBadge>
+              <GlassBadge>
+                <p className="text-xs sm:text-lg">Graduation Photos</p>
               </GlassBadge>
               <GlassBadge>
                 <p className="text-xs sm:text-lg">Photo Editing</p>
               </GlassBadge>
               <GlassBadge>
-                <p className="text-xs sm:text-lg">Events</p>
-              </GlassBadge>
-              <GlassBadge>
-                <p className="text-xs sm:text-lg">Wildlife</p>
+                <p className="text-xs sm:text-lg">Family Photos</p>
               </GlassBadge>
               <GlassBadge>
                 <p className="text-xs sm:text-lg">On Location</p>
@@ -87,7 +87,7 @@ export default function Welcome() {
                     <p className="text-xs sm:text-lg">Professional</p>
                   </GlassBadge>
                 </div>
-              </GlassBadge>
+              </GlassBadge> 
             </div>
           </div>
         </div>
@@ -112,52 +112,52 @@ export default function Welcome() {
             <div className="flex justify-center items-center gap-12">
               <div className="card bg-base-100 text-base-content w-[260px] h-[400px] rounded-xl">
                 <div className="card-body hover:scale-103 cursor-pointer transition-all ease-linear duration-300">
-                  <h2 className="card-title badge badge-outline badge-neutral">Basic</h2>
-                  <p className="text-2xl font-bold">$5.99</p>
+                  <h2 className="card-title badge badge-outline badge-neutral">Couples Photos</h2>
+                  <p className="text-2xl font-bold">$90</p>
                   <p className="text-xs">Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
                   <p className="text-sm text-gray-400">what's included?</p>
                   <ul className="text-xs">
                     <li>1 User</li>
-                    <li>4 Pictures</li>
+                    <li>60+ Pictures</li>
                     <li>Free Delivery</li>
                   </ul>
                   <span className="min-h-12 w-full" />
-                  <button className="btn btn-primary rounded-full">Get Started</button>
+                  <button className="btn btn-primary rounded-full">Book Now</button>
                 </div>
               </div>
               <div className="card bg-black/85 text-base-100 w-[260px] h-[400px] rounded-xl neon-card">
                 <div className="card-body hover:scale-103 cursor-pointer transition-all ease-linear duration-300">
-                  <h2 className="card-title badge badge-outline badge-secondary">Premium</h2>
+                  <h2 className="card-title badge badge-outline badge-secondary">Graduation Photos</h2>
                   <div className="flex items-center gap-2">
-                    <p className="text-2xl font-bold text-secondary">$19.99</p>
+                    <p className="text-2xl font-bold text-secondary">$100</p>
                     <p className="badge badge-xs badge-warning">Most Popular</p>
                   </div>
                   <p className="text-xs text-base-100">Vivamus tortor purus, egestas sit amet posuere in, fringilla ac erat.</p>
                   <p className="text-sm text-gray-400">what's included?</p>
                   <ul className="text-xs">
                     <li>2 User</li>
-                    <li>10 Pictures</li>
+                    <li>70+ Pictures</li>
                     <li>Free Editing</li>
                   </ul>
                   <span className="min-h-12 w-full" />
-                  <button className="btn btn-primary rounded-full">Get Started</button>
+                  <button className="btn btn-primary rounded-full">Book Now</button>
                 </div>
               </div>
               <div className="card bg-base-100 text-base-content w-[260px] h-[400px] rounded-xl">
                 <div className="card-body hover:scale-103 cursor-pointer transition-all ease-linear duration-300">
-                  <h2 className="card-title badge badge-outline badge-accent">Ultimate</h2>
-                  <p className="text-2xl font-bold text-accent">$29.99</p>
+                  <h2 className="card-title badge badge-outline badge-accent">Wedding Photos</h2>
+                  <p className="text-2xl font-bold text-accent">$150</p>
                   <p className="text-xs">Suspendisse potenti. In nec metus nec est euismod egestas et non sapien</p>
                   <p className="text-sm text-gray-400">what's included?</p>
                   <ul className="text-xs">
                     <li>10 User</li>
-                    <li>50 Pictures</li>
+                    <li>100+ Pictures</li>
                     <li>Free Editing</li>
                     <li>Warranty</li>
                     <li>Re-shoot</li>
                   </ul>
                   <span className="min-h-12 w-full" />
-                  <button className="btn btn-primary rounded-full">Get Started</button>
+                  <button className="btn btn-primary rounded-full">Book Now</button>
                 </div>
               </div>
             </div>
@@ -211,8 +211,8 @@ export default function Welcome() {
                 Integer consequat convallis magna.
               </p>
               <div className="flex flex-col justify-start items-start gap-1">
-                <div><FontAwesomeIcon icon={faEnvelope} /> photo@example.com</div>
-                <div><FontAwesomeIcon icon={faPhone} /> 123-456-7890</div>
+                <div><FontAwesomeIcon icon={faEnvelope} />tianayoungphotography@gmail.com</div>
+                <div><FontAwesomeIcon icon={faPhone} /> 403-467-3873</div>
               </div>
               <div className="flex justify-start items-center gap-4 mt-4">
                 <Link href="www.instagram.com" target="_blank"><FontAwesomeIcon icon={faInstagram} /></Link>

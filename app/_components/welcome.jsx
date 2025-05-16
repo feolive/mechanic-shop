@@ -108,7 +108,7 @@ export default function Welcome() {
       <section id="pricing" className="w-full h-screen">
         <div className="hero bg-black/90 text-white h-screen">
           <div className="hero-content flex-col mt-20 gap-16">
-            <h1 className="text-xl sm:text-5xl text-transparent bg-clip-text bg-gradient-to-t from-white to-primary font-bold">Pricing Plan</h1>
+            <h1 className="text-xl sm:text-5xl text-transparent bg-clip-text bg-gradient-to-t from-white to-primary font-bold">Pricing</h1>
             <div className="flex justify-center items-center gap-12">
               <div className="card bg-base-100 text-base-content w-[260px] h-[400px] rounded-xl">
                 <div className="card-body hover:scale-103 cursor-pointer transition-all ease-linear duration-300">
@@ -213,10 +213,11 @@ export default function Welcome() {
               <div className="flex flex-col justify-start items-start gap-1">
                 <div><FontAwesomeIcon icon={faEnvelope} />tianayoungphotography@gmail.com</div>
                 <div><FontAwesomeIcon icon={faPhone} /> 403-467-3873</div>
+              
               </div>
               <div className="flex justify-start items-center gap-4 mt-4">
-                <Link href="www.instagram.com" target="_blank"><FontAwesomeIcon icon={faInstagram} /></Link>
-                <Link href="www.facebook.com" target="_blank"><FontAwesomeIcon icon={faFacebookF} /></Link>
+                <Link href="https://www.instagram.com/tianayoungphotography?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><FontAwesomeIcon icon={faInstagram} /></Link>
+                <Link href="https://www.facebook.com/tianayoungphotography" target="_blank"><FontAwesomeIcon icon={faFacebookF} /></Link>
                 <Link href="www.twitter.com" target="_blank"><FontAwesomeIcon icon={faXTwitter} /></Link>
               </div>
             </div>
